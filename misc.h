@@ -20,7 +20,8 @@
 /******************************************************************************
  * Global Prototypes
  ******************************************************************************/
-long map(long x, long in_min, long in_max, long out_min, long out_max);
+long map_l(long in, long in_min, long in_max, long out_min, long out_max);
+float map_f(float in, float in_min, float in_max, float out_min, float out_max);
 long my_fround(float number);
 float interpolation(float x, const float array[][2], uint8_t size_of_array);
 int rand_range(int min, int max);

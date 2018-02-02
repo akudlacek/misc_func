@@ -15,21 +15,30 @@
  * Re-maps a number from one range to another
  * map(x, in_min, in_max, out_min, out_max)
  ******************************************************************************/
-long map(long x, long in_min, long in_max, long out_min, long out_max)
+long map_l(long in, long in_min, long in_max, long out_min, long out_max)
 {
 	long return_val;
 	
-	return_val = (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+	return_val = (in - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 	
 	//cap to max or min
-	if(return_val > out_max)
-	{
-		return_val = out_max;
-	}
-	else if(return_val < out_min)
-	{
-		return_val = out_min;
-	}
+	return_val = CONSTRAIN(return_val, out_min, out_max);
+	
+	return return_val;
+}
+
+/******************************************************************************
+ * Re-maps a number from one range to another
+ * map(x, in_min, in_max, out_min, out_max)
+ ******************************************************************************/
+float map_f(float in, float in_min, float in_max, float out_min, float out_max)
+{
+	float return_val;
+	
+	return_val = (in - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+	
+	//cap to max or min
+	return_val = CONSTRAIN(return_val, out_min, out_max);
 	
 	return return_val;
 }
