@@ -26,6 +26,9 @@ long my_fround(float number);
 float interpolation(float x, const float array[][2], uint8_t size_of_array);
 int rand_range(int min, int max);
 double non_uniform_rand(double x, double min, double max, double exponent);
+float approx_low_pass_f(float filtered_result, float input, float filter_value);
+float max_rng_chk_w_sep(float input_max, float cur_min, float min_lim, float max_lim, float min_sep);
+float min_rng_chk_w_sep(float input_min, float cur_max, float min_lim, float max_lim, float min_sep);
 
 
 #endif /* MISC_H_ */

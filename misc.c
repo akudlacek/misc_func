@@ -124,3 +124,74 @@ double non_uniform_rand(double x, double min, double max, double exponent)
 		return exp(log(x*(-pow(min,exponent+1)+pow(max,exponent+1))+pow(min,exponent+1))/(exponent+1));
 	}
 }
+
+/******************************************************************************
+* Approximate rolling average
+* https://stackoverflow.com/a/16757630
+* 
+* filtered_result - remembered/output result
+* input           - 
+* filter_value    - number of samples to average, sort of
+******************************************************************************/
+float approx_low_pass_f(float filtered_result, float input, float filter_value)
+{
+
+	filtered_result -= filtered_result / filter_value;
+	filtered_result += input / filter_value;
+
+	return filtered_result;
+}
+
+/******************************************************************************
+*  \brief Max range check w/ min separation
+*
+*  \note
+******************************************************************************/
+float max_rng_chk_w_sep(float input_max, float cur_min, float min_lim, float max_lim, float min_sep)
+{
+	float output_max;
+	
+	output_max = input_max;
+	
+	/*Range checks*/
+	//check lower limit
+	if(output_max < (min_lim + min_sep))
+	output_max = min_lim + min_sep;
+	
+	//check upper limit
+	if(output_max > max_lim)
+	output_max = max_lim;
+	
+	//check separation
+	if((output_max - cur_min) < min_sep)
+	output_max = cur_min + min_sep;
+	
+	return output_max;
+}
+
+/******************************************************************************
+*  \brief Min range check w/ min separation
+*
+*  \note
+******************************************************************************/
+float min_rng_chk_w_sep(float input_min, float cur_max, float min_lim, float max_lim, float min_sep)
+{
+	float output_min;
+	
+	output_min = input_min;
+	
+	/*Range checks*/
+	//check lower limit
+	if(output_min < min_lim)
+	output_min = min_lim;
+	
+	//check upper limit
+	if(output_min > (max_lim - min_sep))
+	output_min = max_lim - min_sep;
+	
+	//check separation
+	if((cur_max - output_min) < min_sep)
+	output_min = cur_max - min_sep;
+	
+	return output_min;
+}
