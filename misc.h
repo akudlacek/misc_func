@@ -20,15 +20,15 @@
 /**************************************************************************************************
 *                                            PROTOTYPES
 *************************************************^************************************************/
-long map_l(long in, long in_min, long in_max, long out_min, long out_max);
-float map_f(float in, float in_min, float in_max, float out_min, float out_max);
-long my_fround(float number);
-float interpolation(float x, const float array[][2], uint8_t size_of_array);
-int rand_range(int min, int max);
-double non_uniform_rand(double x, double min, double max, double exponent);
-float approx_low_pass_f(float filtered_result, float input, float filter_value);
-float max_rng_chk_w_sep(float input_max, float cur_min, float min_lim, float max_lim, float min_sep);
-float min_rng_chk_w_sep(float input_min, float cur_max, float min_lim, float max_lim, float min_sep);
+long   map_l            (const long  in, const long  in_min, const long  in_max, const long  out_min, const long  out_max);
+float  map_f            (const float in, const float in_min, const float in_max, const float out_min, const float out_max);
+long   my_fround        (const float number);
+float  interpolation    (const float x, const float const array[][2], const uint8_t size_of_array);
+int    rand_range       (const int min, const int max);
+double non_uniform_rand (const double x, const double min, const double max, const double exponent);
+float  approx_low_pass_f(float filtered_result, const float input, const float filter_value);
+float  max_rng_chk_w_sep(const float input_max, const float cur_min, const float min_lim, const float max_lim, const float min_sep);
+float  min_rng_chk_w_sep(const float input_min, const float cur_max, const float min_lim, const float max_lim, const float min_sep);
 
 
 #endif /* MISC_H_ */

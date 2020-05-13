@@ -19,7 +19,7 @@
  * Re-maps a number from one range to another
  * map(x, in_min, in_max, out_min, out_max)
  ******************************************************************************/
-long map_l(long in, long in_min, long in_max, long out_min, long out_max)
+long map_l(const long in, const long in_min, const long in_max, const long out_min, const long out_max)
 {
 	long return_val;
 	
@@ -35,7 +35,7 @@ long map_l(long in, long in_min, long in_max, long out_min, long out_max)
  * Re-maps a number from one range to another
  * map(x, in_min, in_max, out_min, out_max)
  ******************************************************************************/
-float map_f(float in, float in_min, float in_max, float out_min, float out_max)
+float map_f(const float in, const float in_min, const float in_max, const float out_min, const float out_max)
 {
 	float return_val;
 	
@@ -51,7 +51,7 @@ float map_f(float in, float in_min, float in_max, float out_min, float out_max)
  * my float round
  * converts a float to long
  ******************************************************************************/
-long my_fround(float number)
+long my_fround(const float number)
 {
 	float diff = (number - floorf(number));
 	
@@ -69,7 +69,7 @@ long my_fround(float number)
  * interpolation 2D for [n]x[2] array
  * x values must be in ascending order
  ******************************************************************************/
-float interpolation(float x, const float array[][2], uint8_t size_of_array)
+float interpolation(const float x, const float const array[][2], const uint8_t size_of_array)
 {
 	float x0 = 0, y0 = 0, x1 = 0, y1 = 0;
 	uint8_t index = 0;
@@ -103,7 +103,7 @@ float interpolation(float x, const float array[][2], uint8_t size_of_array)
 /******************************************************************************
 * Generates random number within a range
 ******************************************************************************/
-int rand_range(int min, int max)
+int rand_range(const int min, const int max)
 {
 	return rand() % (max - min + 1) + min;
 }
@@ -113,7 +113,7 @@ int rand_range(int min, int max)
 * this takes in random numnber from 0-1, can use drand48()
 * https://www.twam.info/software/non-uniform-distributed-random-numbers
 ******************************************************************************/
-double non_uniform_rand(double x, double min, double max, double exponent)
+double non_uniform_rand(const double x, const double min, const double max, const double exponent)
 {
 	if(exponent == -1)
 	{
@@ -133,7 +133,7 @@ double non_uniform_rand(double x, double min, double max, double exponent)
 * input           - 
 * filter_value    - number of samples to average, sort of
 ******************************************************************************/
-float approx_low_pass_f(float filtered_result, float input, float filter_value)
+float approx_low_pass_f(float filtered_result, const float input, const float filter_value)
 {
 
 	filtered_result -= filtered_result / filter_value;
@@ -147,7 +147,7 @@ float approx_low_pass_f(float filtered_result, float input, float filter_value)
 *
 *  \note
 ******************************************************************************/
-float max_rng_chk_w_sep(float input_max, float cur_min, float min_lim, float max_lim, float min_sep)
+float max_rng_chk_w_sep(const float input_max, const float cur_min, const float min_lim, const float max_lim, const float min_sep)
 {
 	float output_max;
 	
@@ -174,7 +174,7 @@ float max_rng_chk_w_sep(float input_max, float cur_min, float min_lim, float max
 *
 *  \note
 ******************************************************************************/
-float min_rng_chk_w_sep(float input_min, float cur_max, float min_lim, float max_lim, float min_sep)
+float min_rng_chk_w_sep(const float input_min, const float cur_max, const float min_lim, const float max_lim, const float min_sep)
 {
 	float output_min;
 	
