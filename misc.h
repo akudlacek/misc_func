@@ -15,6 +15,8 @@
 *                                             DEFINES
 *************************************************^************************************************/
 #define CONSTRAIN(amt,low,high) ((amt)<(low)?(low):((amt)>(high)?(high):(amt))) //keeps within high and low range
+#define MAP(in, in_min, in_max, out_min, out_max) (((in) - (in_min)) * ((out_max) - (out_min)) / ((in_max) - (in_min)) + (out_min)) //maps from one range to another
+#define MAPC(in, in_min, in_max, out_min, out_max) (CONSTRAIN(MAP(in, in_min, in_max, out_min, out_max), out_min, out_max)) //constrained map
 
 
 /**************************************************************************************************
