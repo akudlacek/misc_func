@@ -69,7 +69,7 @@ long my_fround(const float number)
  * interpolation 2D for [n]x[2] array
  * x values must be in ascending order
  ******************************************************************************/
-float interpolation(const float x, const float const array[][2], const uint8_t size_of_array)
+float interpolation(const float x, const float array[][2], const uint8_t size_of_array)
 {
 	float x0 = 0, y0 = 0, x1 = 0, y1 = 0;
 	uint8_t index = 0;
