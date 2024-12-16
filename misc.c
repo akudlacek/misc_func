@@ -108,6 +108,12 @@ int rand_range(const int min, const int max)
 	return rand() % (max - min + 1) + min;
 }
 
+float rand_range_f(const float min, const float max)
+{
+    float scale = rand() / (float) RAND_MAX; /* [0, 1.0] */
+    return min + scale * ( max - min );      /* [min, max] */
+}
+
 /******************************************************************************
 * Generates Non-uniform distributed random numbers using power-law X^n
 * this takes in random numnber from 0-1, can use drand48()
