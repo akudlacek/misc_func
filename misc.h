@@ -8,6 +8,10 @@
 #ifndef MISC_H_
 #define MISC_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <stdint.h>
 
 
@@ -33,5 +37,8 @@ float  approx_low_pass_f(float filtered_result, const float input, const float f
 float  max_rng_chk_w_sep(const float input_max, const float cur_min, const float min_lim, const float max_lim, const float min_sep);
 float  min_rng_chk_w_sep(const float input_min, const float cur_max, const float min_lim, const float max_lim, const float min_sep);
 
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* MISC_H_ */
